@@ -1,0 +1,19 @@
+{
+  "name": "react-redux-form-materialize",
+  "version": "1.0.0",
+  "description": "Input controls for react-redux-form leveraged by Materialize Material UI framework",
+  "main": "index.js",
+  "repository": "https://github.com/nasushkov/react-redux-form-materialize",
+  "author": "nsushkov <Nikita.Sushkov@comindware.com>",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "peerDependencies": {
+    "react-redux": "^4.4.6",
+    "react-redux-form": "^1.2.4",
+    "redux": "^3.6.0"
+  }
+}
