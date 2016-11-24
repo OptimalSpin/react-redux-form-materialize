@@ -1,0 +1,13 @@
+# Docs
+docs/
+dist/
+
+# Misc
+node_modules/
+.editorconfig
+.eslintignore
+.eslintrc
+.babelrc
+.gitignore
+.travis.yml
+stats.json
