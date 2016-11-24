@@ -6,7 +6,7 @@ import omit from '../helpers/omit'
 
 const TextArea = (props) => {
     const errors = props.innerState.touched
-        ? getTruthyProps(props.innerState.errors || {}).map(val => props.messages[val[1]]).join(', ')
+        ? Array.from(getTruthyProps(props.innerState.errors || {})).map(val => props.messages[val[1]]).join(', ')
         : ''
 
     const focus = props.innerState.focus

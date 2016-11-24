@@ -1,7 +1,7 @@
-export default (obj) => {
-    const result = []
-    for(const [key, val] in Object.entries(obj)){
-        val && result.push([key, val])
-    }
-    return result
+export function* getTruthyProps(obj) {   
+    for(const entry in Object.entries(obj)){
+        if(val) {
+            yield entry
+        }
+    }    
 }
