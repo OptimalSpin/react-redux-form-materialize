@@ -17,8 +17,8 @@ npm install react-redux-form-materialize@latest --save
 
 ##Controls
 Currently this package supports several basic controls which are based on Materialise styles: **TextInput**, **TextArea**, **FileInput** and **CheckedInput** (used both for radio and checkbox).
-You can use each control as a *component* property of an appropriate react-redux-form Control component. For some controls (TextInput, TextArea and FileInput) you should
-also provide mapProps property which is included in this package. Here is a full example:
+You can use each control as a *component* property of an appropriate react-redux-form *Control* component. For some controls (**TextInput**, **TextArea** and **FileInput**) you should
+also provide *mapProps* property which is included in this package. Here is a full example:
 
 ```jsx
 import React from 'react'
