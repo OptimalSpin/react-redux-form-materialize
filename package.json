@@ -1,6 +1,6 @@
 {
   "name": "react-redux-form-materialize",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Input controls for react-redux-form leveraged by Materialize Material UI framework",
   "main": "lib/index.js",
   "repository": "https://github.com/nasushkov/react-redux-form-materialize",
