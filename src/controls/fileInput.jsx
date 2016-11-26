@@ -39,7 +39,7 @@ export default class FileInput extends React.Component {
                     <input {...inputProps} onClick={this.onFileClick} type="file"/>
                 </div>
                 <div className="file-path-wrapper">
-                    <input disabled={props.disabled} value={inputValue.join('')} className={textInputClassName} type="text" placeholder={props.placeholder}/>
+                    <input disabled={props.disabled} value={inputValue.join('')} className={textInputClassName} type="text" readOnly={true} placeholder={props.placeholder}/>
                 </div>
             </div>
         );

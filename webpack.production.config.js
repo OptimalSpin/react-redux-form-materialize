@@ -1,8 +1,29 @@
 const webpack = require('webpack')
 const baseConfig = require('./webpack.base.config')
-const merge = require('merge')
+const {babelLoaderConfig} = require('./webpack.base.config')
+const merge = require('webpack-merge')
 
 module.exports = merge(baseConfig, {
+    externals: {
+        'react': {
+            commonjs: 'react',
+            commonjs2: 'react',
+            amd: 'React',
+            root: 'React'
+        },
+        'react-dom': {
+            root: 'ReactDOM',
+            commonjs2: 'react-dom',
+            commonjs: 'react-dom',
+            amd: 'react-dom'
+        },
+        'classnames': {
+            commonjs: 'classnames',
+            commonjs2: 'classnames',
+            amd: 'Classnames',
+            root: 'classnames'
+        }
+    },
     devtool: null,
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
@@ -16,5 +37,10 @@ module.exports = merge(baseConfig, {
                 warnings: false
             }
         })
-    ]
+    ],
+    module: {
+        loaders: [
+            babelLoaderConfig
+        ]
+    }
 })

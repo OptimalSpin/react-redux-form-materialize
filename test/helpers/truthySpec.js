@@ -14,7 +14,7 @@ describe('Truthy helper', () => {
         const result = getTruthyProps(obj)
         expect(result).to.deep.yield(['truthy', true])
     })
-    it('an iterator should return only truthy values', () => {
+    it('should return an iterator with only truthy values', () => {
         const obj = {
             truthy: true,
             truthy1: "1",

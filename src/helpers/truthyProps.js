@@ -1,7 +1,7 @@
-export function* getTruthyProps(obj) {   
-    for(const entry in Object.entries(obj)){
-        if(val) {
+export default function* getTruthyProps(obj) {
+    for(const entry of Object.entries(obj)){
+        if(entry[1]) {
             yield entry
         }
-    }    
+    }
 }

@@ -11,7 +11,7 @@ const TextInput = (props) => {
     const errors = props.innerState.touched
         ? Array.from(getTruthyProps(props.innerState.errors || {})).map(val => props.messages[val[1]]).join(', ')
         : ''
-
+    
     const focus = props.innerState.focus
 
     const iconColor = focus ? ACTIVE_COLOR : DEFAULT_COLOR
@@ -25,7 +25,7 @@ const TextInput = (props) => {
         'active': focus || props.innerState.value || errors.length
     })
 
-    const inputProps = omit(props, ['placeholder', 'innerState', 'iconPrefix', 'className', 'messages'])
+    const inputProps = omit(props, ['placeholder', 'innerState', 'iconPrefix', 'className', 'messages', 'iconFactory'])
 
     return (
         <div className="input-field">
