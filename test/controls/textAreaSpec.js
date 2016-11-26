@@ -3,7 +3,7 @@ import {shallow} from 'enzyme'
 import chai from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 
-import TextArea from '../../src/controls/textArea.jsx'
+import TextArea from '../../src/controls/textArea.js'
 
 chai.use(chaiEnzyme())
 const {expect} = chai

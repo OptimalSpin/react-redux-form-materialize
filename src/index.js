@@ -1,7 +1,7 @@
-import CheckedInput from './controls/checkedInput.jsx'
-import FileInput from './controls/fileInput.jsx'
-import TextArea from './controls/textArea.jsx'
-import TextInput from './controls/textInput.jsx'
+import CheckedInput from './controls/checkedInput.js'
+import FileInput from './controls/fileInput.js'
+import TextArea from './controls/textArea.js'
+import TextInput from './controls/textInput.js'
 import mapProps from './helpers/mapProps'
 
 export {
