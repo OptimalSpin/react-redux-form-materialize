@@ -7,14 +7,14 @@
   "author": "nsushkov <Nikita.Sushkov@comindware.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build",
+    "start": "yarn run build",
     "lint": "eslint --ext .js,.jsx .",
-    "build": "npm run build:umd && npm run build:lib",
+    "build": "yarn run build:umd && yarn run build:lib",
     "build:watch": "babel -w src --out-dir lib",
     "build:umd": "better-npm-run build:umd",
     "build:lib": "better-npm-run build:lib",
     "test": "better-npm-run test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "yarn run test -- --watch"
   },
   "betterScripts": {
     "build:umd": {
@@ -46,6 +46,7 @@
     "webpack-node-externals": "^1.5.4"
   },
   "peerDependencies": {
+    "materialize": "^1.0.0",
     "react-redux": "^4.4.6",
     "react-redux-form": "^1.2.4",
     "redux": "^3.6.0"
