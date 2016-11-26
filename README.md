@@ -26,9 +26,7 @@ import {Control, Form} from 'react-redux-form'
 import {TextInput, TextArea, FileInput, CheckedInput, mapProps} from 'react-redux-form-materialize'
 
 class MyForm extends React.Component {
-  handleSubmit(val) {
-    // Do anything you want with the form value
-    console.log(val);
+  handleSubmit(val) {    
   }
 
   render() {
@@ -48,12 +46,11 @@ class MyForm extends React.Component {
         </div>               
         <button>Submit!</button>
       </Form>
-    );
+    )
   }
 }
 
-// No need to connect()!
-export default MyForm;
+export default MyForm
 ```
 
 ##Validation
