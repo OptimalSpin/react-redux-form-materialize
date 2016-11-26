@@ -42,7 +42,7 @@ class MyForm extends React.Component {
            <Control.checkbox type="checkbox" model="user.checked" component={CheckedInput} />
         </div> 
         <div className="row">
-           <Control.file model="user.doc" component={FileInput} mapProps={mapProps}/>
+           <Control.file model="user.doc" placeholder="Input file" buttonText="File" component={FileInput} mapProps={mapProps}/>
         </div>               
         <button>Submit!</button>
       </Form>
