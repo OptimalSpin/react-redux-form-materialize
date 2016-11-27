@@ -16,7 +16,7 @@ npm install react-redux-form-materialize@latest --save
 ```
 
 ##Controls
-Currently this package supports several basic controls which are based on Materialise styles: **TextInput**, **TextArea**, **FileInput** and **CheckedInput** (used both for radio and checkbox).
+Currently this package supports several basic controls which are based on Materialize styles: **TextInput**, **TextArea**, **FileInput** and **CheckedInput** (used both for radio and checkbox).
 You can use each control as a *component* property of an appropriate react-redux-form *Control* component. For some controls (**TextInput**, **TextArea** and **FileInput**) you should
 also provide *mapProps* property which is included in this package. Here is a full example:
 
@@ -33,16 +33,20 @@ class MyForm extends React.Component {
     return (
       <Form model="user" onSubmit={(val) => this.handleSubmit(val)}>
         <div className="row">
-           <Control.text type="text" model="user.name" placeholder="My name" component={TextInput} mapProps={mapProps}/>
+           <Control.text type="text" model="user.name" placeholder="My name" 
+           component={TextInput} mapProps={mapProps}/>
         </div> 
         <div className="row">
-           <Control.text model="user.info"  placeholder="My info" component={TextArea} mapProps={mapProps}/>
+           <Control.text model="user.info"  placeholder="My info" 
+           component={TextArea} mapProps={mapProps}/>
         </div> 
         <div className="row">
-           <Control.checkbox type="checkbox" model="user.checked" component={CheckedInput} />
+           <Control.checkbox type="checkbox" model="user.checked" 
+           component={CheckedInput} />
         </div> 
         <div className="row">
-           <Control.file model="user.doc" placeholder="Input file" buttonText="File" component={FileInput} mapProps={mapProps}/>
+           <Control.file model="user.doc" placeholder="Input file" 
+           buttonText="File" component={FileInput} mapProps={mapProps}/>
         </div>               
         <button>Submit!</button>
       </Form>
