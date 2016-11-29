@@ -1,6 +1,6 @@
 {
   "name": "react-redux-form-materialize",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Input controls for react-redux-form leveraged by Materialize Material UI framework",
   "main": "lib/index.js",
   "repository": "https://github.com/nasushkov/react-redux-form-materialize",
@@ -46,7 +46,7 @@
     "webpack-node-externals": "^1.5.4"
   },
   "peerDependencies": {
-    "materialize": "^1.0.0",
+    "materialize-css": "^0.97.8",
     "react-redux": "^4.4.6",
     "react-redux-form": "^1.2.4",
     "redux": "^3.6.0"

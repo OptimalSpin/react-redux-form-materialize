@@ -14,7 +14,7 @@ const TextInput = (props) => {
     
     const focus = props.innerState.focus
 
-    const iconColor = focus ? ACTIVE_COLOR : DEFAULT_COLOR
+    const iconColor = focus ? (props.activeIconColor || ACTIVE_COLOR) : (props.defaultIconColor || DEFAULT_COLOR)
 
     const inputClassName = classNames('validate', {
         'invalid': errors.length,
