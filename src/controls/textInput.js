@@ -25,7 +25,7 @@ const TextInput = (props) => {
         'active': focus || props.innerState.value || errors.length
     })
 
-    const inputProps = omit(props, ['placeholder', 'innerState', 'iconPrefix', 'className', 'messages', 'iconFactory'])
+    const inputProps = omit(props, ['placeholder', 'innerState', 'iconPrefix', 'className', 'messages', 'iconFactory', 'type'])
 
     return (
         <div className="input-field">
@@ -37,7 +37,7 @@ const TextInput = (props) => {
                     }
                 })()
             }
-            <input {...inputProps} type={props.type} className={inputClassName}/>
+            <input {...inputProps} type={props.inputType || props.type} className={inputClassName}/>
             <label htmlFor={props.id} className={labelClassName} data-error={errors}>{props.placeholder}</label>
         </div>
     )
