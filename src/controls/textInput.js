@@ -26,7 +26,8 @@ const TextInput = (props) => {
         'active': focus || props.innerState.value || errors.length
     })
 
-    const inputProps = omit(props, ['placeholder', 'innerState', 'iconPrefix', 'className', 'messages', 'iconFactory', 'type'])
+    const inputProps = omit(props, ['placeholder', 'innerState', 'iconPrefix',
+        'className', 'messages', 'iconFactory', 'type', 'inputType'])
 
     return (
         <div className={fieldClassName}>
