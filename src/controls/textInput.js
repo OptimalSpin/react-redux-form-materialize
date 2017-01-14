@@ -13,12 +13,13 @@ const TextInput = (props) => {
         : ''
     
     const focus = props.innerState.focus
+    
+    const fieldClassName = classNames('input-field', props.className)
 
     const iconColor = focus ? (props.activeIconColor || ACTIVE_COLOR) : (props.defaultIconColor || DEFAULT_COLOR)
 
     const inputClassName = classNames('validate', {
-        'invalid': errors.length,
-        [props.className]: props.className
+        'invalid': errors.length
     })
 
     const labelClassName = classNames({
@@ -28,7 +29,7 @@ const TextInput = (props) => {
     const inputProps = omit(props, ['placeholder', 'innerState', 'iconPrefix', 'className', 'messages', 'iconFactory', 'type'])
 
     return (
-        <div className="input-field">
+        <div className={fieldClassName}>
             {
                 (() => {
                     if(props.iconPrefix){

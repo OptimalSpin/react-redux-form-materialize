@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import classNames from 'classnames'
+import cn from 'classnames'
 import omit from '../helpers/omit'
 
 export default class FileInput extends React.Component {
@@ -21,19 +21,21 @@ export default class FileInput extends React.Component {
         if(inputValue.length) {
             inputValue.pop()
         }
+        
+        const fieldClass = cn('file-field', 'input-field', props.className)
 
-        const btnClassName = classNames('btn', {
+        const btnClassName = cn('btn', {
             'disabled': props.disabled
-        })
+        })       
 
-        const textInputClassName = classNames('file-path', 'validate', {
+        const textInputClassName = cn('file-path', 'validate', {
             [props.textClassName]: props.textClassName
         })
 
-        const inputProps = omit(props, ['placeholder', 'innerState', 'textClassName', 'messages', 'buttonText', 'onFileClick'])
+        const inputProps = omit(props, ['placeholder', 'innerState', 'textClassName', 'messages', 'buttonText', 'onFileClick', 'className'])
 
         return (
-            <div className="file-field input-field">
+            <div className={fieldClass}>
                 <div className={btnClassName}>
                     <span>{props.buttonText}</span>
                     <input {...inputProps} onClick={this.onFileClick} type="file"/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import classNames from 'classnames'
+import cn from 'classnames'
 
 import getTruthyProps from '../helpers/truthyProps'
 import omit from '../helpers/omit'
@@ -10,20 +10,21 @@ const TextArea = (props) => {
         : ''
 
     const focus = props.innerState.focus
+    
+    const filedClassName = cn('input-field', props.className)
 
-    const inputClassName = classNames('materialize-textarea', 'validate', {
-        'invalid': errors.length,
-        [props.className]: props.className
+    const inputClassName = cn('materialize-textarea', 'validate', {
+        'invalid': errors.length
     })
 
-    const labelClassName = classNames({
+    const labelClassName = cn({
         'active': focus || props.innerState.value || errors.length
     })
 
     const inputProps = omit(props, ['placeholder', 'innerState', 'className', 'messages'])
 
     return (
-        <div className="input-field">
+        <div className={filedClassName}>
             <textarea {...inputProps} className={inputClassName}/>
             <label htmlFor={props.id} className={labelClassName} data-error={errors}>{props.placeholder}</label>
         </div>
