@@ -18,7 +18,7 @@ npm install react-redux-form-materialize@latest --save
 ```
 
 ##Controls
-Currently this package supports several basic controls which are based on Materialize styles: **TextInput**, **TextArea**, **DropdownInput**, **CheckedInput** ((used both for radio and checkbox)), **FileInput** and **SwitcherInput**.
+Currently this package supports several basic controls which are based on Materialize styles: **TextInput**, **TextArea**, **DropdownInput**, **CheckedInput** (used both for radio and checkbox), **FileInput** and **SwitcherInput**.
 In addition two more opinionated controls are provided: **AucompleteInput** (which is based on highly popular [React Autosuggest](https://github.com/moroshko/react-autosuggest) compoment and uses materialize styles for rendering) 
 and **DatePicker** (which is not compliant with Materialize date picker styles but uses [React Infinite Calendar](https://github.com/clauderic/react-infinite-calendar) which is also designed with Material UL concepts in mind). 
 You can use each control as a *component* property of an appropriate react-redux-form *Control* component. For some controls (**TextInput**, **TextArea**, **DropdownInput**, **AutocompleteInput**, **DatePicker** and **FileInput**) 
