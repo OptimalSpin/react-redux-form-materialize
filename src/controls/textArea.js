@@ -1,15 +1,11 @@
 import React, {Component} from 'react'
 import cn from 'classnames'
+import omit from 'lodash/omit'
 
-import getTruthyProps from '../helpers/truthyProps'
-import omit from '../helpers/omit'
+import {getErrors, getLabelClassName} from '../helpers/inputHelpers'
 
 const TextArea = (props) => {
-    const errors = props.innerState.touched
-        ? Array.from(getTruthyProps(props.innerState.errors || {})).map(val => props.messages[val[1]]).join(', ')
-        : ''
-
-    const focus = props.innerState.focus
+    const errors = getErrors(props)    
     
     const filedClassName = cn('input-field', props.className)
 
@@ -17,9 +13,7 @@ const TextArea = (props) => {
         'invalid': errors.length
     })
 
-    const labelClassName = cn({
-        'active': focus || props.innerState.value || errors.length
-    })
+    const labelClassName = getLabelClassName(props, errors)
 
     const inputProps = omit(props, ['placeholder', 'innerState', 'className', 'messages'])
 
@@ -32,7 +26,8 @@ const TextArea = (props) => {
 }
 
 TextArea.propTypes = {
-    innerState: React.PropTypes.object.isRequired
+    innerState: React.PropTypes.object.isRequired,
+    messages: React.PropTypes.object
 }
 
 export default TextArea

@@ -1,6 +1,6 @@
 {
   "name": "react-redux-form-materialize",
-  "version": "0.6.7",
+  "version": "0.7.0",
   "description": "Input controls for react-redux-form leveraged by Materialize Material UI framework",
   "main": "lib/index.js",
   "repository": "https://github.com/nasushkov/react-redux-form-materialize",
@@ -41,8 +41,13 @@
     "better-npm-run": "^0.0.13",
     "classnames": "^2.2.5",
     "json-loader": "^0.5.4",
+    "lodash": "^4.17.4",
     "react": "^15.4.1",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-addons-shallow-compare": "^15.4.2",
+    "react-autosuggest": "^8.0.0",
     "react-dom": "^15.4.1",
+    "react-infinite-calendar": "^1.2.2",
     "webpack-node-externals": "^1.5.4"
   },
   "peerDependencies": {
@@ -56,6 +61,8 @@
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.8",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.2.11",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "^6.18.0",

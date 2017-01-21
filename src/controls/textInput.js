@@ -1,30 +1,21 @@
 import React from 'react'
-import classNames from 'classnames'
+import cn from 'classnames'
+import omit from 'lodash/omit'
 
-import getTruthyProps from '../helpers/truthyProps'
-import omit from '../helpers/omit'
-
-const ACTIVE_COLOR = '#26a69a'
-const DEFAULT_COLOR = 'black'
+import {getErrors, getIconColor, getLabelClassName} from '../helpers/inputHelpers'
 
 const TextInput = (props) => {
-    const errors = props.innerState.touched
-        ? Array.from(getTruthyProps(props.innerState.errors || {})).map(val => props.messages[val[1]]).join(', ')
-        : ''
+    const errors = getErrors(props)
     
-    const focus = props.innerState.focus
-    
-    const fieldClassName = classNames('input-field', props.className)
+    const fieldClassName = cn('input-field', props.className)
 
-    const iconColor = focus ? (props.activeIconColor || ACTIVE_COLOR) : (props.defaultIconColor || DEFAULT_COLOR)
+    const iconColor = getIconColor(props)
 
-    const inputClassName = classNames('validate', {
+    const inputClassName = cn('validate', {
         'invalid': errors.length
     })
 
-    const labelClassName = classNames({
-        'active': focus || props.innerState.value || errors.length
-    })
+    const labelClassName = getLabelClassName(props, errors)
 
     const inputProps = omit(props, ['placeholder', 'innerState', 'iconPrefix',
         'className', 'messages', 'iconFactory', 'type', 'inputType'])
@@ -48,7 +39,8 @@ const TextInput = (props) => {
 TextInput.propTypes = {
     innerState: React.PropTypes.object.isRequired,
     iconPrefix: React.PropTypes.string,
-    iconFactory: React.PropTypes.func
+    iconFactory: React.PropTypes.func,
+    messages: React.PropTypes.object
 }
 
 export default TextInput

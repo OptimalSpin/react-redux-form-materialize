@@ -22,6 +22,14 @@ module.exports = {
 module.exports.babelLoaderConfig = { 
     test: /\.jsx?$/, 
     loader: 'babel', 
-    include: [SRC_PATH]
+    include: [SRC_PATH],
+    options: {
+        cacheDirectory: true,
+        presets: ['es2015', 'react', 'stage-0'],
+        plugins: [
+            'lodash',
+            "transform-object-assign"
+        ]
+    }
 }
       

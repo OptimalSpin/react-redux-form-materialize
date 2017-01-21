@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import cn from 'classnames'
-import omit from '../helpers/omit'
+import omit from 'lodash/omit'
 
 export default class FileInput extends React.Component {
     static propTypes = {

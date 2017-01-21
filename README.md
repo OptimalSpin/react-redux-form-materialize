@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/nasushkov/react-redux-form-materialize.svg?branch=master)](https://travis-ci.org/nasushkov/react-redux-form-materialize)
 
-Input controls for [React Redux Form](https://github.com/davidkpiano/react-redux-form) leveraged by [Materialize](https://github.com/Dogfalo/materialize) Material UI framework
+Material input controls for the second popular React/Redux library for a form manipulation [React Redux Form](https://github.com/davidkpiano/react-redux-form) 
+leveraged by [Materialize](https://github.com/Dogfalo/materialize) Material UI CSS framework under the hood. It does not use any js code from Materialize since 
+it is tightly coupled with jQuery.  
 
 `npm install react-redux-form-materialize@latest --save`
 
@@ -16,9 +18,11 @@ npm install react-redux-form-materialize@latest --save
 ```
 
 ##Controls
-Currently this package supports several basic controls which are based on Materialize styles: **TextInput**, **TextArea**, **FileInput** and **CheckedInput** (used both for radio and checkbox).
-You can use each control as a *component* property of an appropriate react-redux-form *Control* component. For some controls (**TextInput**, **TextArea** and **FileInput**) you should
-also provide *mapProps* property which is included in this package. Here is a full example:
+Currently this package supports several basic controls which are based on Materialize styles: **TextInput**, **TextArea**, **DropdownInput**, **CheckedInput** ((used both for radio and checkbox)), **FileInput** and **SwitcherInput**.
+In addition two more opinionated controls are provided: **AucompleteInput** (which is based on highly popular [React Autosuggest](https://github.com/moroshko/react-autosuggest) compoment and uses materialize styles for rendering) 
+and **DatePicker** (which is not compliant with Materialize date picker styles but uses [React Infinite Calendar](https://github.com/clauderic/react-infinite-calendar) which is also designed with Material UL concepts in mind). 
+You can use each control as a *component* property of an appropriate react-redux-form *Control* component. For some controls (**TextInput**, **TextArea**, **DropdownInput**, **AutocompleteInput**, **DatePicker** and **FileInput**) 
+you should also provide *mapProps* property which is included in this package (it is used to connect some internals of React Redux Form). Here is a full example:
 
 ```jsx
 import React from 'react'
@@ -58,9 +62,9 @@ export default MyForm
 ```
 
 ##Validation
-**TextInput** and **TextArea** supports React Redux Form validation and can be used in conjunction with [React Intl](https://github.com/yahoo/react-intl) to provide internalized error messages (set *messages* property for that purpose).
+**TextInput**, **TextArea**, **DropdownInput** and **AutocompleteInput** supports React Redux Form validation and can be used in conjunction with [React Intl](https://github.com/yahoo/react-intl) to provide internalized error messages (set *messages* property for that purpose).
 
 ##Fancy input icons
-You can also provide fancy Material icons to accompany your TextInput (set *iconPrefix* and *iconFactory* properties to make it work) 
+You can also provide fancy Material icons (for example [React Icons](https://gorangajic.github.io/react-icons/fa.html)) to accompany your TextInput (set *iconPrefix* and *iconFactory* properties to make it work) 
 
 
