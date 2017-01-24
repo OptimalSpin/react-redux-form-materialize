@@ -69,14 +69,11 @@ export default class DropdownInput extends React.Component {
 
         const selectWrapperClassName = cn('select-wrapper', props.selectClassName)
 
-        const inputClassName = cn('select-dropdown', 'validate', {
-            'invalid': errors.length,
-            'active': showSelect
+        const inputClassName = cn('select-dropdown', 'validate', 'active', {
+            'invalid': errors.length
         })
 
-        const ulClassName= cn('dropdown-content', 'select-dropdown', {
-            'active': showSelect
-        })
+        const ulClassName= cn('dropdown-content', 'select-dropdown', 'active')
 
         const labelClassName = getLabelClassName(props, errors)
 
@@ -87,7 +84,11 @@ export default class DropdownInput extends React.Component {
         const selectProps = omit(props, ['placeholder', 'innerState', 'iconPrefix',
             'className', 'selectClassName', 'messages', 'iconFactory'])
 
-        const selectedItem = props.children.find(chld => chld.props.value === props.innerState.value)
+        const selectedItem = props.children.find(chld => chld.props.value === props.value)
+
+        const labelStyle = {
+            top: errors.length ? '60px' : '0.8rem'
+        }
 
         return (
             <div className={fieldClassName}>
@@ -123,7 +124,7 @@ export default class DropdownInput extends React.Component {
                         {props.children}
                     </select>
                 </div>
-                <label htmlFor={props.id} className={labelClassName} data-error={errors}>{props.placeholder}</label>
+                <label htmlFor={props.id} className={labelClassName} style={labelStyle} data-error={errors}>{props.placeholder}</label>
             </div>
         )
     }
