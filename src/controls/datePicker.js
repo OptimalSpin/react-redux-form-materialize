@@ -79,7 +79,7 @@ export default class DatePicker extends React.Component {
 
         const calendarProps = Object.assign({
             onSelect: this.onSelect
-        }, defaultCalendarProps, props.autosuggestProps)
+        }, defaultCalendarProps, props.calendarProps)
 
         const calerdarContainerStyle = Object.assign({
             left: props.iconPrefix ? '3rem' : '0'
