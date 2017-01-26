@@ -17,7 +17,9 @@ function setupNew(){
     const props = {
         id: '1',
         type: 'text',
-        innerState: {},
+        innerState: {
+            value: new Date()
+        },
         placeholder: 'Input'
     }
 

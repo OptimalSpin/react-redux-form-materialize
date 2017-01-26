@@ -1,6 +1,7 @@
 import React from 'react'
 import InfiniteCalendar from 'react-infinite-calendar'
 import cn from 'classnames'
+import moment from 'moment'
 
 import {getErrors, getIconColor, getLabelClassName} from '../helpers/inputHelpers'
 
@@ -54,7 +55,7 @@ export default class DatePicker extends React.Component {
 
     onSelect = (date) => {
         this.setState({showCalendar: false})
-        this.props.onChange(date)
+        this.props.onChange(date.toDate())
     }
 
     onCalendarClick = (evnt) => {
@@ -92,7 +93,7 @@ export default class DatePicker extends React.Component {
         }
 
         const inputValue = props.innerState.value
-            ? props.innerState.value.format(props.dateFormat || defaultDateFormat)
+            ? moment(props.innerState.value).format(props.dateFormat || defaultDateFormat)
             : ''
         const disabled = props.disabled ? 'disabled' : false
 

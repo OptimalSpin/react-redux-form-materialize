@@ -1,6 +1,6 @@
 {
   "name": "react-redux-form-materialize",
-  "version": "0.7.2",
+  "version": "0.7.4",
   "description": "Input controls for react-redux-form leveraged by Materialize Material UI framework",
   "main": "lib/index.js",
   "repository": "https://github.com/nasushkov/react-redux-form-materialize",
@@ -42,6 +42,7 @@
     "classnames": "^2.2.5",
     "json-loader": "^0.5.4",
     "lodash": "^4.17.4",
+    "moment": "^2.17.1",
     "react": "^15.4.1",
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-shallow-compare": "^15.4.2",
