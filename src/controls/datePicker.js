@@ -31,11 +31,12 @@ export default class DatePicker extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {showCalendar: false}
+        this.state = {showCalendar: false, skipRender: true}        
     }
 
     componentDidMount() {
         window.addEventListener('click', this.onPageClick, false)
+        this.setState({skipRender: false})
     }
 
     componentWillUnmount() {
@@ -64,7 +65,7 @@ export default class DatePicker extends React.Component {
 
     render(){
         const props = this.props
-        const {showCalendar} = this.state
+        const {showCalendar, skipRender} = this.state
 
         const errors = getErrors(props)
         const iconColor =  getIconColor(props)            
@@ -110,7 +111,7 @@ export default class DatePicker extends React.Component {
                 <input type="text" value={inputValue} readOnly={true} className={inputClassName} disabled={disabled} onClick={this.onShow}/>
                 <label htmlFor={props.id} className={labelClassName} data-error={errors}>{props.placeholder}</label>
                 <div style={calerdarContainerStyle} className="collapsible">
-                    {showCalendar && <InfiniteCalendar {...calendarProps} selectedDate={props.innerState.value}/>}
+                    {skipRender && <InfiniteCalendar {...calendarProps} selectedDate={props.innerState.value}/>}
                 </div>
             </div>
         )
