@@ -111,7 +111,7 @@ export default class DatePicker extends React.Component {
                 <input type="text" value={inputValue} readOnly={true} className={inputClassName} disabled={disabled} onClick={this.onShow}/>
                 <label htmlFor={props.id} className={labelClassName} data-error={errors}>{props.placeholder}</label>
                 <div style={calerdarContainerStyle} className="collapsible">
-                    {skipRender && <InfiniteCalendar {...calendarProps} selectedDate={props.innerState.value}/>}
+                    {!skipRender && <InfiniteCalendar {...calendarProps} selectedDate={props.innerState.value}/>}
                 </div>
             </div>
         )
