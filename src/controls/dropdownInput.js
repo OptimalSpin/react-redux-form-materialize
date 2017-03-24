@@ -96,7 +96,8 @@ export default class DropdownInput extends React.Component {
                     (() => {
                         if(props.iconPrefix){
                             const PrefixIcon = props.iconFactory(props.iconPrefix)
-                            return <PrefixIcon className="prefix" color={iconColor}/>
+                            const style = {left: '0px'}
+                            return <PrefixIcon style={style} className="prefix" color={iconColor}/>
                         }
                     })()
                 }
