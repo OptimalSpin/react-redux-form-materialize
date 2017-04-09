@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import cn from 'classnames'
 import omit from 'lodash/omit'
 import map from 'lodash/map'
@@ -13,17 +14,49 @@ const defaultUlStyle = {
     width: '100%'
 }
 
+function renderChild(props, { props: { disabled, value, children } }) {
+    const { innerState } = props;
+
+    const liClass = cn({
+        disabled: disabled,
+        active: value === innerState.value,
+        selected: value === innerState.value
+    })
+
+    return (
+        <li className={liClass} key={value} data-value={value} data-disabled={disabled}
+            onMouseDown={this.onDropdownClick}>
+            <span>{children}</span>
+        </li>
+    )
+}
+
+const defaultCaret = (
+    <span className="caret">▼</span>
+)
+
 export default class DropdownInput extends React.Component {
     static propTypes = {
-        innerState: React.PropTypes.object.isRequired,
-        iconPrefix: React.PropTypes.string,
-        iconFactory: React.PropTypes.func,
-        messages: React.PropTypes.object
+        innerState: PropTypes.object.isRequired,
+        iconPrefix: PropTypes.string,
+        iconFactory: PropTypes.func,
+        messages: PropTypes.object,
+        selectClassName: PropTypes.string,
+        selectTagClassName: PropTypes.string,
+        inputClassName: PropTypes.string,
+        caretClassName: PropTypes.string,
+        renderChild: PropTypes.func.isRequired,
+        caret: PropTypes.element
+    }
+
+    static defaultProps = {
+        renderChild,
+        caret: defaultCaret
     }
 
     constructor(props) {
         super(props)
-        this.state = {showSelect: false}
+        this.state = { showSelect: false }
     }
 
     componentDidMount() {
@@ -35,29 +68,29 @@ export default class DropdownInput extends React.Component {
     }
 
     onPageClick = () => {
-        this.setState({showSelect: false})
+        this.setState({ showSelect: false })
     }
 
     onShow = () => {
-        if(this.props.disabled){
+        if (this.props.disabled) {
             return
         }
-        this.setState({showSelect: true})
+        this.setState({ showSelect: true })
     }
 
     onDropdownClick = (evnt) => {
         event.stopPropagation()
-        const {currentTarget: { dataset:  {value, disabled}}} = evnt
-        if(disabled){
+        const { currentTarget: { dataset: { value, disabled } } } = evnt
+        if (disabled) {
             return
         }
-        this.setState({showSelect: false})
+        this.setState({ showSelect: false })
         this.props.onChange(value)
     }
 
-    render(){
+    render() {
         const props = this.props
-        const {showSelect} = this.state
+        const { showSelect } = this.state
 
         const errors = getErrors(props)
 
@@ -71,9 +104,9 @@ export default class DropdownInput extends React.Component {
 
         const inputClassName = cn('select-dropdown', 'validate', 'active', {
             'invalid': errors.length
-        })
+        }, props.inputClassName)
 
-        const ulClassName= cn('dropdown-content', 'select-dropdown', 'active')
+        const ulClassName = cn('dropdown-content', 'select-dropdown', 'active', props.ulClassName)
 
         const labelClassName = getLabelClassName(props, errors)
 
@@ -81,8 +114,23 @@ export default class DropdownInput extends React.Component {
             display: showSelect ? 'block' : 'none'
         }, defaultUlStyle)
 
-        const selectProps = omit(props, ['placeholder', 'innerState', 'iconPrefix',
-            'className', 'selectClassName', 'messages', 'iconFactory'])
+        const selectProps = omit(props, [
+            'placeholder',
+            'innerState',
+            'iconPrefix',
+            'className',
+            'selectClassName',
+            'messages',
+            'iconFactory',
+            'selectTagClassName',
+            'inputClassName',
+            'caretClassName',
+            'ulClassName',
+            'renderChild',
+            'caret'
+        ])
+
+        selectProps.className = props.selectTagClassName
 
         const selectedItem = props.children.find(chld => chld.props.value === props.value)
 
@@ -94,38 +142,33 @@ export default class DropdownInput extends React.Component {
             <div className={fieldClassName}>
                 {
                     (() => {
-                        if(props.iconPrefix){
+                        if (props.iconPrefix) {
                             const PrefixIcon = props.iconFactory(props.iconPrefix)
-                            const style = {left: '0px'}
+                            const style = { left: '0px' }
                             return <PrefixIcon style={style} className="prefix" color={iconColor}/>
                         }
                     })()
                 }
                 <div className={selectWrapperClassName}>
-                    <span className="caret">▼</span>
-                    <input type="text" className={inputClassName} readOnly={true}  disabled={disabled} onClick={this.onShow} value={selectedItem && selectedItem.props.children}/>
+                    {this.props.caret}
+                    <input type="text"
+                           className={inputClassName}
+                           readOnly={true}
+                           disabled={disabled}
+                           onClick={this.onShow}
+                           value={selectedItem && selectedItem.props.children}
+                    />
                     <ul className={ulClassName} style={ulStyle}>
                         {
-                            map(props.children, ({props: {children, disabled, value}}) => {
-                                const liClass = cn({
-                                    disabled: disabled,
-                                    active: value === props.innerState.value,
-                                    selected: value === props.innerState.value
-                                })
-
-                                return (
-                                    <li className={liClass} key={value} data-value={value} data-disabled={disabled} onMouseDown={this.onDropdownClick}>
-                                        <span>{children}</span>
-                                    </li>
-                                )
-                            })
+                            map(props.children, childProps => this.props.renderChild(props, childProps))
                         }
                     </ul>
                     <select {...selectProps} disabled={disabled}>
                         {props.children}
                     </select>
                 </div>
-                <label htmlFor={props.id} className={labelClassName} style={labelStyle} data-error={errors}>{props.placeholder}</label>
+                <label htmlFor={props.id} className={labelClassName} style={labelStyle}
+                       data-error={errors}>{props.placeholder}</label>
             </div>
         )
     }

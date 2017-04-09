@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import InfiniteCalendar from 'react-infinite-calendar'
 import cn from 'classnames'
 import moment from 'moment'
@@ -23,10 +24,10 @@ const defaultDateFormat = 'DD/MM/YYYY'
 
 export default class DatePicker extends React.Component {
     static propTypes = {
-        innerState: React.PropTypes.object.isRequired,
-        iconPrefix: React.PropTypes.string,
-        iconFactory: React.PropTypes.func,
-        calendarProps: React.PropTypes.object
+        innerState: PropTypes.object.isRequired,
+        iconPrefix: PropTypes.string,
+        iconFactory: PropTypes.func,
+        calendarProps: PropTypes.object
     };
 
     constructor(props) {

@@ -1,6 +1,7 @@
 import React from 'react'
 import cn from 'classnames'
 import omit from 'lodash/omit'
+import PropTypes from 'prop-types'
 
 import {getErrors, getIconColor, getLabelClassName} from '../helpers/inputHelpers'
 
@@ -37,10 +38,10 @@ const TextInput = (props) => {
 }
 
 TextInput.propTypes = {
-    innerState: React.PropTypes.object.isRequired,
-    iconPrefix: React.PropTypes.string,
-    iconFactory: React.PropTypes.func,
-    messages: React.PropTypes.object
+    innerState: PropTypes.object.isRequired,
+    iconPrefix: PropTypes.string,
+    iconFactory: PropTypes.func,
+    messages: PropTypes.object
 }
 
 export default TextInput

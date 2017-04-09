@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import cn from 'classnames'
 import omit from 'lodash/omit'
 
@@ -26,8 +27,8 @@ const TextArea = (props) => {
 }
 
 TextArea.propTypes = {
-    innerState: React.PropTypes.object.isRequired,
-    messages: React.PropTypes.object
+    innerState: PropTypes.object.isRequired,
+    messages: PropTypes.object
 }
 
 export default TextArea
