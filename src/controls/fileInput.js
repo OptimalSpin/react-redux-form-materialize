@@ -1,10 +1,11 @@
-import React, {Component} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import cn from 'classnames'
 import omit from 'lodash/omit'
 
 export default class FileInput extends React.Component {
     static propTypes = {
-        innerState: React.PropTypes.object.isRequired
+        innerState: PropTypes.object.isRequired
     };
 
     onFileClick = (event) => {
@@ -21,12 +22,12 @@ export default class FileInput extends React.Component {
         if(inputValue.length) {
             inputValue.pop()
         }
-        
+
         const fieldClass = cn('file-field', 'input-field', props.className)
 
         const btnClassName = cn('btn', {
             'disabled': props.disabled
-        })       
+        })
 
         const textInputClassName = cn('file-path', 'validate', {
             [props.textClassName]: props.textClassName

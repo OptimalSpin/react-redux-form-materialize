@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import cn from 'classnames'
 import omit from 'lodash/omit'
 import Autosuggest from 'react-autosuggest'
@@ -88,11 +89,11 @@ const AutocompleteInput = (props) => {
 }
 
 AutocompleteInput.propTypes = {
-    innerState: React.PropTypes.object.isRequired,
-    iconPrefix: React.PropTypes.string,
-    iconFactory: React.PropTypes.func,
-    messages: React.PropTypes.object,
-    autosuggestProps: React.PropTypes.object
+    innerState: PropTypes.object.isRequired,
+    iconPrefix: PropTypes.string,
+    iconFactory: PropTypes.func,
+    messages: PropTypes.object,
+    autosuggestProps: PropTypes.object
 }
 
 export default AutocompleteInput

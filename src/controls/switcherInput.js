@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import cn from 'classnames'
 
 const switchStyle = {
@@ -23,8 +24,8 @@ const SwitcherInput = ({id, name, className, checked, onChange, offLabel, onLabe
 }
 
 SwitcherInput.propTypes = {
-    onLabel: React.PropTypes.string,
-    offLabel: React.PropTypes.string    
+    onLabel: PropTypes.string,
+    offLabel: PropTypes.string
 }
 
 export default SwitcherInput
