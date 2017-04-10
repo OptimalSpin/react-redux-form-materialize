@@ -14,8 +14,8 @@ const defaultUlStyle = {
     width: '100%'
 }
 
-function renderChild(props, { props: { disabled, value, children } }) {
-    const { innerState } = props;
+function renderChild(dropdownInput, { props: { disabled, value, children } }) {
+    const { innerState } = dropdownInput.props;
 
     const liClass = cn({
         disabled: disabled,
@@ -25,7 +25,7 @@ function renderChild(props, { props: { disabled, value, children } }) {
 
     return (
         <li className={liClass} key={value} data-value={value} data-disabled={disabled}
-            onMouseDown={this.onDropdownClick}>
+            onMouseDown={dropdownInput.onDropdownClick}>
             <span>{children}</span>
         </li>
     )
@@ -160,7 +160,7 @@ export default class DropdownInput extends React.Component {
                     />
                     <ul className={ulClassName} style={ulStyle}>
                         {
-                            map(props.children, childProps => this.props.renderChild(props, childProps))
+                            map(props.children, childProps => this.props.renderChild(this, childProps))
                         }
                     </ul>
                     <select {...selectProps} disabled={disabled}>
