@@ -132,7 +132,7 @@ export default class DropdownInput extends React.Component {
 
         selectProps.className = props.selectTagClassName
 
-        const selectedItem = props.children.find(chld => chld.props.value === props.value)
+        const selectedItem = props.children.find(chld => chld.props.value == props.value)
 
         const labelStyle = {
             top: errors.length ? '60px' : '0.8rem'
