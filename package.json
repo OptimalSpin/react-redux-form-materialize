@@ -1,6 +1,6 @@
 {
   "name": "react-redux-form-materialize",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "Input controls for react-redux-form leveraged by Materialize Material UI framework",
   "main": "lib/index.js",
   "repository": "https://github.com/nasushkov/react-redux-form-materialize",
@@ -38,8 +38,8 @@
     }
   },
   "dependencies": {
-    "react-autosuggest": "^8.0.0",
-    "react-infinite-calendar": "^1.2.2"
+    "react-autosuggest": "^9.3.2",
+    "react-infinite-calendar": "^2.3.1"
   },
   "peerDependencies": {
     "classnames": "^2.2.5",
