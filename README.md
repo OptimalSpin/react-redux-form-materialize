@@ -2,6 +2,12 @@
 
 [![Build Status](https://travis-ci.org/nasushkov/react-redux-form-materialize.svg?branch=master)](https://travis-ci.org/nasushkov/react-redux-form-materialize)
 
+> ⚠⚠⚠
+>
+> Note:
+>
+> This package is moved to https://github.com/OptimalSpin/materialize-controls
+
 Material input controls for the second popular React/Redux library for a form manipulation [React Redux Form](https://github.com/davidkpiano/react-redux-form) 
 leveraged by [Materialize](https://github.com/Dogfalo/materialize) Material UI CSS framework under the hood. It does not use any js code from Materialize since 
 it is tightly coupled with jQuery.  
